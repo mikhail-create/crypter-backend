@@ -33,7 +33,7 @@
 // module.exports = app;
 
 const express = require('express')
-
+const products = require('./products.json')
 const app = express()
 
 app.get('/', (req, res) => {
@@ -41,7 +41,7 @@ app.get('/', (req, res) => {
 })
 
 app.get('/ping', (req, res) => {
-    res.send('pong 🏓')
+    res.send(products)
 })
 
 const port = process.env.PORT || 8080
