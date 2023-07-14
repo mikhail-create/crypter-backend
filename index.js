@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const { getAllProducts, getProductById, getImage } = require('./src/api');
 const app = express()
 
