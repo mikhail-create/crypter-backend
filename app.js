@@ -29,3 +29,5 @@ app.get('/images/:filename', (req, res) => {
 app.listen(5000, () => {
     console.log('Backend приложение запущено на порту 5000');
 });
+
+module.exports = app;
