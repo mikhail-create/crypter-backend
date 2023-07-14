@@ -2,6 +2,8 @@ const express = require('express');
 const { getAllProducts, getProductById, getImage } = require('./src/api');
 const app = express()
 
+app.use(cors());
+
 app.get('/', (req, res) => {
   res.send('Express JS on Vercel')
 })
