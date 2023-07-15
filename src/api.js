@@ -8,7 +8,7 @@ const getAllProducts = (req, res) => {
   const endIndex = page * limit; // Конечный индекс элементов на текущей странице
 
   const results = products.results.slice(startIndex, endIndex); // Получение элементов для текущей страницы
-  const totalPages = Math.ceil(products.length / limit); // Общее количество страниц
+  const totalPages = products.totalPages; // Общее количество страниц
 
   res.json({ results, totalPages });
 };
