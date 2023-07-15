@@ -1,8 +1,18 @@
 const products = require('../products.json')
 
 const getAllProducts = (req, res) => {
-  res.json(products);
+  const page = parseInt(req.query.page) || 1; // Запрашиваемая страница, по умолчанию 1
+  const limit = parseInt(req.query.limit) || 8; // Количество элементов на странице, по умолчанию 10
+
+  const startIndex = (page - 1) * limit; // Начальный индекс элементов на текущей странице
+  const endIndex = page * limit; // Конечный индекс элементов на текущей странице
+
+  const results = products.slice(startIndex, endIndex); // Получение элементов для текущей страницы
+  const totalPages = Math.ceil(products.length / limit); // Общее количество страниц
+
+  res.json({ results, totalPages });
 };
+
 
 const getProductById = (req, res) => {
   const id = parseInt(req.params.id);
