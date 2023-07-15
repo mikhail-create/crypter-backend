@@ -16,7 +16,7 @@ const getAllProducts = (req, res) => {
 
 const getProductById = (req, res) => {
   const id = parseInt(req.params.id);
-  const product = products.find((product) => product.id === id);
+  const product = products.results.find((product) => product.id === id);
 
   if (product) {
     res.json(product);
